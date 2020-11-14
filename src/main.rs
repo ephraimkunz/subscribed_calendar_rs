@@ -32,8 +32,6 @@ impl<'a, 'r> FromRequest<'a, 'r> for AuthenticatedUser {
     fn from_request(request: &'a Request<'r>) -> Outcome<AuthenticatedUser, LoginError> {
         const AUTH_KEY: &str = "Authorization";
         const BASIC_SCHEME: &str = "Basic ";
-        println!("{:?}", request.uri());
-        println!("{:?}", request.headers());
 
         let auth_header_value = request.headers().get_one(AUTH_KEY);
         match auth_header_value {
