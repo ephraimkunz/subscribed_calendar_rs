@@ -7,4 +7,4 @@ if [[ $UID != 0 ]]; then
     exit 1
 fi
 
-ROCKET_PORT=80 nohup ./target/release/subscribed_calendar_rs >log.txt 2>&1 &
+./target/release/subscribed_calendar_rs >log.txt 2>&1 &
