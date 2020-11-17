@@ -1,0 +1,10 @@
+[global.tls]
+certs = "/etc/letsencrypt/live/ephraimkunz.com/fullchain.pem"
+key = "/etc/letsencrypt/live/ephraimkunz.com/privkey.pem"
+
+[global]
+log = "normal"
+workers = 1
+port = 80
+
+
