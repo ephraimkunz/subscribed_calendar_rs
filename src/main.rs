@@ -13,7 +13,7 @@ use std::str::FromStr;
 
 fn main() {
     rocket::ignite()
-        .mount("/", routes![basicauth])
+        .mount("/", routes![index, basicauth])
         .register(catchers![unauthorized])
         .launch();
 }
@@ -66,6 +66,11 @@ impl<'a, 'r> FromRequest<'a, 'r> for AuthenticatedUser {
 #[get("/basicauth.ics")]
 fn basicauth(_user: AuthenticatedUser) -> std::io::Result<NamedFile> {
     NamedFile::open("data/basicauth.ics")
+}
+
+#[get("/")]
+fn index() -> &'static str {
+    "Hello, world!"
 }
 
 #[derive(Responder)]
